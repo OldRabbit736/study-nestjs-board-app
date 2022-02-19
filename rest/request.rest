@@ -20,3 +20,12 @@ content-type: application/json
 
 DELETE http://localhost:3000/boards/ba2e7880-9158-11ec-acf1-71732a65380d
 content-type: application/json
+
+###
+
+PATCH http://localhost:3000/boards/670523f0-9164-11ec-83f2-054cb24c40ce/status
+Content-Type: application/json
+
+{
+    "status": "PRIVATE"
+}
