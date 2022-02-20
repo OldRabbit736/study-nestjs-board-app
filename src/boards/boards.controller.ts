@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  NotFoundException,
   Param,
   Patch,
   Post,
@@ -34,13 +33,7 @@ export class BoardsController {
   @Get('/:id')
   getBoardById(@Param('id') id: string): Board {
     // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
-    const found = this.boardsService.getBoardById(id);
-
-    if (!found) {
-      throw new NotFoundException(`Can't find board with id ${id}`);
-    }
-
-    return found;
+    return this.boardsService.getBoardById(id);
   }
 
   @Delete('/:id')
