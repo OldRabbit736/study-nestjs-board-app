@@ -7,8 +7,8 @@ POST  http://localhost:3000/boards
 content-type: application/json
 
  {
-     "title": "",
-     "description": ""
+     "title": "My first post",
+     "description": "wow!"
  }
 
 ###
@@ -23,9 +23,9 @@ content-type: application/json
 
 ###
 
-PATCH http://localhost:3000/boards/670523f0-9164-11ec-83f2-054cb24c40ce/status
+PATCH http://localhost:3000/boards/9b5a37b0-9251-11ec-9d1b-35edd658c83a/status
 Content-Type: application/json
 
 {
-    "status": "PRIVATE"
+    "status": "RANDOM"
 }
