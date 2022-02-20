@@ -7,8 +7,8 @@ POST  http://localhost:3000/boards
 content-type: application/json
 
  {
-     "title": "Hello",
-     "description": "My first post!!"
+     "title": "",
+     "description": ""
  }
 
 ###
