@@ -31,8 +31,16 @@ export class BoardsController {
   //   return this.boardsService.createBoard(createBoardDto);
   // }
 
+  @Post('/')
+  @UsePipes(ValidationPipe)
+  createBoard(@Body() creatBoardDto: CreateBoardDto): Promise<Board> {
+    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
+    return this.boardsService.createBoard(creatBoardDto);
+  }
+
   @Get('/:id')
   getBoardById(@Param('id') id: number): Promise<Board> {
+    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
     return this.boardsService.getBoardById(id);
   }
 

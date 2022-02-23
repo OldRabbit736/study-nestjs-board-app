@@ -13,7 +13,7 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/boards/21336a50-9158-11ec-93ce-e10e595ee7aa
+GET http://localhost:3000/boards/1
 content-type: application/json
 
 ###
