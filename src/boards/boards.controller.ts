@@ -20,22 +20,22 @@ import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe'
 export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
-  // @Get('/')
-  // getAllBoards(): Board[] {
-  //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
-  //   return this.boardsService.getAllBoards();
-  // }
+  @Get('/')
+  getAllBoards(): Promise<Board[]> {
+    // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
+    return this.boardsService.getAllBoards();
+  }
 
   @Post('/')
   @UsePipes(ValidationPipe)
   createBoard(@Body() creatBoardDto: CreateBoardDto): Promise<Board> {
-    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
+    // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
     return this.boardsService.createBoard(creatBoardDto);
   }
 
   @Get('/:id')
   getBoardById(@Param('id', ParseIntPipe) id: number): Promise<Board> {
-    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
+    // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
     return this.boardsService.getBoardById(id);
   }
 
@@ -47,9 +47,9 @@ export class BoardsController {
   @Patch('/:id/status')
   updateBoardStatus(
     @Param('id', ParseIntPipe) id: number,
-    @Body('status', BoardStatusValidationPipe) status: BoardStatus,
+    @Body('status', BoardStatusValidationPipe) status: BoardStatus, // 별도의 DTO를 이용하는 방법이 더 낫다.
   ): Promise<Board> {
-    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
+    // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
     return this.boardsService.updateBoardStatus(id, status);
   }
 }
