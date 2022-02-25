@@ -25,12 +25,6 @@ export class BoardsController {
   //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
   //   return this.boardsService.getAllBoards();
   // }
-  // @Post('/')
-  // @UsePipes(ValidationPipe)
-  // createBoard(@Body() createBoardDto: CreateBoardDto): Board {
-  //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
-  //   return this.boardsService.createBoard(createBoardDto);
-  // }
 
   @Post('/')
   @UsePipes(ValidationPipe)
@@ -45,27 +39,17 @@ export class BoardsController {
     return this.boardsService.getBoardById(id);
   }
 
-  // @Get('/:id')
-  // getBoardById(@Param('id') id: string): Board {
-  //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
-  //   return this.boardsService.getBoardById(id);
-  // }
-
   @Delete('/:id')
   deleteBoard(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.boardsService.deleteBoard(id);
   }
 
-  // @Delete('/:id')
-  // deleteBoardById(@Param('id') id: string): void {
-  //   this.boardsService.deleteBoard(id);
-  // }
-  // @Patch('/:id/status')
-  // updateBoardStatus(
-  //   @Param('id') id: string,
-  //   @Body('status', BoardStatusValidationPipe) status: BoardStatus,
-  // ): Board {
-  //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
-  //   return this.boardsService.updateBoardStatus(id, status);
-  // }
+  @Patch('/:id/status')
+  updateBoardStatus(
+    @Param('id', ParseIntPipe) id: number,
+    @Body('status', BoardStatusValidationPipe) status: BoardStatus,
+  ): Promise<Board> {
+    // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
+    return this.boardsService.updateBoardStatus(id, status);
+  }
 }
