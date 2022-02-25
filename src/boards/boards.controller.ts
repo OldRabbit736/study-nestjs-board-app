@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   UsePipes,
@@ -39,7 +40,7 @@ export class BoardsController {
   }
 
   @Get('/:id')
-  getBoardById(@Param('id') id: number): Promise<Board> {
+  getBoardById(@Param('id', ParseIntPipe) id: number): Promise<Board> {
     // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다. Result<T> ? 영한님 강의에서 처럼....
     return this.boardsService.getBoardById(id);
   }
@@ -49,6 +50,12 @@ export class BoardsController {
   //   // 엔티티 그대로 리턴하면 안 좋다. 리턴 타입을 새로 만드는 게 좋다.
   //   return this.boardsService.getBoardById(id);
   // }
+
+  @Delete('/:id')
+  deleteBoard(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.boardsService.deleteBoard(id);
+  }
+
   // @Delete('/:id')
   // deleteBoardById(@Param('id') id: string): void {
   //   this.boardsService.deleteBoard(id);
