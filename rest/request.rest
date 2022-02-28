@@ -13,19 +13,19 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/boards/1
+GET http://localhost:3000/boards/2
 content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/boards/ba2e7880-9158-11ec-acf1-71732a65380d
+DELETE http://localhost:3000/boards/1
 content-type: application/json
 
 ###
 
-PATCH http://localhost:3000/boards/9b5a37b0-9251-11ec-9d1b-35edd658c83a/status
+PATCH http://localhost:3000/boards/2/status
 Content-Type: application/json
 
 {
-    "status": "RANDOM"
+    "status": "PRIVATE"
 }
