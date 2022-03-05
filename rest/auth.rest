@@ -1,5 +1,5 @@
 POST  http://localhost:3000/auth/signup
-content-type: application/json
+Content-Type: application/json
 
  {
      "username": "Horizon5",
@@ -9,9 +9,16 @@ content-type: application/json
 ###
 
 POST  http://localhost:3000/auth/signin
-content-type: application/json
+Content-Type: application/json
 
  {
      "username": "Horizon5",
      "password": "12345"
  }
+
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvcml6b241IiwiaWF0IjoxNjQ2NDgzMzc1LCJleHAiOjE2NDY0ODY5NzV9.zWNJm8NLRhQTcCqV4zJb0ydjSvIk-znXq4IOucXVjzw
+
+POST  http://localhost:3000/auth/test
+Content-Type: application/json
+Authorization: Bearer {{token}}
