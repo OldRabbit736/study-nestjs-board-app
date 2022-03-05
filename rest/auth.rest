@@ -5,3 +5,13 @@ content-type: application/json
      "username": "Horizon5",
      "password": "12345"
  }
+
+###
+
+POST  http://localhost:3000/auth/signin
+content-type: application/json
+
+ {
+     "username": "Horizon5",
+     "password": "1234"
+ }
