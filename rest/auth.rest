@@ -2,6 +2,6 @@ POST  http://localhost:3000/auth/signup
 content-type: application/json
 
  {
-     "username": "Horizon",
+     "username": "Horizon5",
      "password": "12345"
  }
