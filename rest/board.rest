@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvcml6b24yIiwiaWF0IjoxNjQ3MjM1NzIzLCJleHAiOjE2NDcyMzkzMjN9.htw1_EI2t470Pg174ak87XqJh4o10LLoEHillCUzN_I
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvcml6b24yIiwiaWF0IjoxNjQ3MjU0MTg3LCJleHAiOjE2NDcyNTc3ODd9.IdbxWBGipoU6mxrA1QGagM4Xg8w4MYNlcuFdl2CT6XU
 
 GET http://localhost:3000/boards
 content-type: application/json
