@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvcml6b241IiwiaWF0IjoxNjQ2NTYyOTg2LCJleHAiOjE2NDY1NjY1ODZ9.l-3ZX8dMY-STQ_XKp0b5S10AInolul5yS1OxoQHqkAE
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvcml6b24yIiwiaWF0IjoxNjQ3MjMxOTAwLCJleHAiOjE2NDcyMzU1MDB9.pggo6DFu_5V4kkFxGIY28JN38gLrw2NiyZzbV2uqgPU
 
 GET http://localhost:3000/boards
 content-type: application/json
@@ -12,7 +12,7 @@ content-type: application/json
 Authorization: Bearer {{token}}
 
  {
-     "title": "My first post",
+     "title": "horizon2",
      "description": "wow!"
  }
 

@@ -2,7 +2,7 @@ POST  http://localhost:3000/auth/signup
 Content-Type: application/json
 
  {
-     "username": "Horizon5",
+     "username": "Horizon3",
      "password": "12345"
  }
 
@@ -12,7 +12,7 @@ POST  http://localhost:3000/auth/signin
 Content-Type: application/json
 
  {
-     "username": "Horizon5",
+     "username": "Horizon2",
      "password": "12345"
  }
 
