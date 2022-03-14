@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Logger,
   Param,
   ParseIntPipe,
   Patch,
@@ -23,10 +24,12 @@ import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe'
 @Controller('boards')
 @UseGuards(AuthGuard())
 export class BoardsController {
+  private logger = new Logger('BoardsController');
   constructor(private boardsService: BoardsService) {}
 
   @Get('/')
   getAllBoards(@GetUser() user: User): Promise<Board[]> {
+    this.logger.verbose(`User ${user.username} trying to get all boards`);
     // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
     return this.boardsService.getAllBoards(user);
   }
@@ -37,6 +40,10 @@ export class BoardsController {
     @Body() createBoardDto: CreateBoardDto,
     @GetUser() user: User,
   ): Promise<Board> {
+    this.logger.verbose(
+      `User ${user.username} creating a new board.
+      Payload: ${JSON.stringify(createBoardDto)}`,
+    );
     // entity 타입을 포함하여 리턴하는 것 보다는, DTO 등 별도의 타입을 포함하는 Result<T> 와 같은 타입으로 리턴 해 주는 것이 좋다.
     return this.boardsService.createBoard(createBoardDto, user);
   }
